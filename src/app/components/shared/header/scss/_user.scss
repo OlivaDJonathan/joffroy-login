@@ -1,0 +1,24 @@
+.user {
+
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+
+    * {
+        padding: 10px 15px;
+        margin-inline: 10px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    &__login {
+        color: #fca855;
+        border: 2px solid #fca855;
+    }
+
+    &__register {
+        color: #fc697d;
+        border: 2px solid #fc697d;
+    }
+}

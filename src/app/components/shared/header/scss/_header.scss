@@ -1,0 +1,30 @@
+.header {
+    &__web {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+
+        .logo {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-inline: 20px;
+
+            &__image {
+                width: 70px;
+                height: auto;
+            }
+
+            &__title {
+                font-size: 1.6rem;
+                font-weight: 700;
+                margin-left: 5px;
+            }
+        }
+    }
+
+    &__mobile{
+        display: none;
+    }
+}

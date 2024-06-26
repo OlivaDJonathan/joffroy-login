@@ -1,0 +1,33 @@
+.menu {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    * {
+        font-size: 1.2rem;        
+        cursor: pointer;
+    }
+
+    &__item {
+        margin-inline: 20px;
+        font-weight: 500;
+        position: relative;
+        align-items: center;
+        height: 100%;
+
+        &::before {
+            content: "";
+            position: absolute;
+            height: 3px;
+            width: 0%;
+            background-color: #fca855;
+            bottom: -3px;
+            transition: 300ms;
+        }
+
+        &:hover::before{
+            width: 80%;
+        }
+    }
+}

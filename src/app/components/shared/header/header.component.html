@@ -1,0 +1,22 @@
+<header [class.active__header]="active">
+    <div class="container">
+        <div class="header__web">
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="can we get much higher" class="logo__image">
+                <div class="logo__title">Lorem Ipsum</div>
+            </div>
+            <div class="menu">
+                <div class="menu__item">Alerts</div>
+                <div class="menu__item">Users</div>
+                <div class="user">
+                    <div *ngIf="userLogged; else userUnLogged">This shouldn't show</div>
+                    <ng-template #userUnLogged>
+                        <div class="user__login" routerLink="/login">Login</div>
+                        <div class="user__register">Register</div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+        <div (click)="handleClick($event)" class="header__burger" [class.active]="active"><span></span></div>
+    </div>
+</header>
