@@ -1,0 +1,47 @@
+.background {
+    width: 35%;
+    height: 100%;
+    background: rgb(252,105,125);
+    background: linear-gradient(162deg, rgba(252,105,125,1) 0%, rgba(252,168,85,1) 51%, rgba(252,105,198,1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__message {
+        color: white;
+        font-size: 2.3rem;
+        font-weight: 900;
+        padding: 40px;
+        text-align: center;
+
+        .register {
+            margin-inline: auto;
+            margin-top: 30px;
+            font-weight: 500;
+            width: 65%;
+            font-size: 2rem;
+            
+            padding: 15px 20px;
+            color: white;
+            cursor: pointer;
+            border: 5px solid white;
+
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                height: 5px;
+                width: 0%;
+                background-color: white;
+                bottom: 10px;
+                transition: 300ms;
+            }
+    
+            &:hover::before{
+                width: 70%;
+            }
+        }
+    }
+}

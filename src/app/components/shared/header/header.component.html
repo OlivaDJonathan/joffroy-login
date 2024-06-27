@@ -12,7 +12,7 @@
                     <div *ngIf="userLogged; else userUnLogged">This shouldn't show</div>
                     <ng-template #userUnLogged>
                         <div class="user__login" routerLink="/login">Login</div>
-                        <div class="user__register">Register</div>
+                        <div class="user__register" routerLink="/register">Register</div>
                     </ng-template>
                 </div>
             </div>
