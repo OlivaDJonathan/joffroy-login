@@ -1,1 +1,36 @@
-<p>register works!</p>
+<div class="container">
+    <div class="register">
+        <div class="register__message">Welcome to Lorem Ipsum! <br> <span>Register your account</span></div>
+        <form class="register__form" [formGroup]="userForm" (ngSubmit)="register()">   
+            <div class="form-group">
+                <input type="text" [class.input-danger]="userForm?.get('firstName')?.invalid && userForm?.get('firstName')?.touched" class="form-control" id="firstName" formControlName="firstName" placeholder="First Name" required>
+                <div *ngIf="userForm?.get('firstName')?.invalid && userForm?.get('firstName')?.touched" class="text-danger">
+                    First Name is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" [class.input-danger]="userForm?.get('lastName')?.invalid && userForm?.get('lastName')?.touched" class="form-control" id="lastName" formControlName="lastName" placeholder="Last Name" required>
+                <div *ngIf="userForm?.get('lastName')?.invalid && userForm?.get('lastName')?.touched" class="text-danger">
+                    Last Name is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" [class.input-danger]="userForm?.get('email')?.invalid && userForm?.get('email')?.touched" class="form-control" id="email" formControlName="email" placeholder="Email" required>
+                <div *ngIf="userForm?.get('email')?.invalid && userForm?.get('email')?.touched" class="text-danger">
+                    Email is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" [class.input-danger]="userForm?.get('password')?.invalid && userForm?.get('password')?.touched" class="form-control" id="password" formControlName="password" placeholder="Password" required>
+                <div *ngIf="userForm?.get('password')?.invalid && userForm?.get('password')?.touched" class="text-danger">
+                    Password is required.
+                </div>
+            </div>
+            <div class="login__form">Already have an account? <span class="login__form-link" routerLink="/login">Login here</span></div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+    <div class="background">
+        <div class="background__message">Already have an account? <br> <div class="login" routerLink="/login">Login here</div></div>
+    </div>
+</div>

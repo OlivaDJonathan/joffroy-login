@@ -1,0 +1,50 @@
+
+@media screen and (max-width: 999px) {
+    .background {
+        &__message {
+            .register {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .register {
+        &__message {
+            text-align: center;
+        }
+    }
+}
+
+@media screen and (max-width: 799px) {
+    .background {
+        display:  none;
+    }
+
+    .register {
+        width: 100%;
+
+        &__form {
+            .form-group {
+                input {
+                    width: 350px !important;
+                }
+            }
+
+            .login__form {
+                display: block !important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .register {
+        &__form {
+            .form-group {
+                input {
+                    width: 225px !important;
+                }
+            }
+        }
+    }
+}
