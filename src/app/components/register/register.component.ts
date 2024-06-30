@@ -12,6 +12,7 @@ import { RouterLink } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   StrongPasswordRegx: RegExp =/^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,}$/;
+  PhoneNumber: RegExp =/^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
 
   userForm: any;
 
@@ -22,6 +23,7 @@ export class RegisterComponent implements OnInit {
     this.userForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.pattern(this.PhoneNumber)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.pattern(this.StrongPasswordRegx)]]
     });

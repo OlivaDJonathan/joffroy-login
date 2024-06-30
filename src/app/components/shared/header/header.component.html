@@ -7,7 +7,7 @@
             </div>
             <div class="menu">
                 <div class="menu__item">Alerts</div>
-                <div class="menu__item">Users</div>
+                <div class="menu__item" routerLink="/users">Users</div>
                 <div class="user">
                     <div *ngIf="userLogged; else userUnLogged">This shouldn't show</div>
                     <ng-template #userUnLogged>

@@ -27,7 +27,10 @@ export class LoginComponent implements OnInit {
   login() {
     //TODO Login submition
     if (this.userForm?.valid) {
-      console.log('Form data:', this.userForm.value);
+
     }
   }
 }
+
+/*const user = { email: "test@email.com", password: "Passw0rd!" }
+    .subscribe();*/
