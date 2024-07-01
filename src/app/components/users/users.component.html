@@ -1,11 +1,11 @@
 
 <div class="container">
     <div class="users">
-        @if (users$ |async; as users ) {
+        @if (users$ | async; as users ) {
             @if (users.length > 0 ){
-                <div class="add-user">Add User</div>
+                <div class="add-user" (click)="createNewUser()">Add User</div>
                 @for (user of users; track $index) {
-                    <div class="user">
+                    <div class="user" (click)="getUser(user.id!)">
                         <div class="user__title">{{user.firstName}} {{user.lastName}}</div>
                         <div class="user__info">
                             <div class="user__info-email"><i class="fa-regular fa-envelope"></i>{{user.email}}</div>
@@ -21,5 +21,7 @@
             </div>
         }
     </div>
-    <div class="form"></div>
+    <div class="form">
+        <app-user-form [user$]="user$" [newUser]="newUser" [action]="action" [currentId]="currentId"></app-user-form>
+    </div>
 </div>

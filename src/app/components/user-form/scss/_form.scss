@@ -1,0 +1,63 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+
+    &-row{
+        display: flex;
+        flex-direction: row;
+
+        &__group {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+
+            label {
+                margin: 10px 20px;
+                font-size: 1.3rem;
+            }
+    
+            input {
+                height: 50px;
+                width: 400px;
+                padding: 0 20px;
+    
+                border: 0;
+                border-left: 5px solid #69fc9e;
+                outline: none;
+                background: rgb(240, 238, 238);
+                color: black;
+                margin: 15px 20px;
+                font-size: 1.2rem;
+    
+                &::placeholder {
+                    color: grey;
+                    font-size: 1.2rem;
+                }
+            }
+    
+            .input-danger {
+                border-left: 5px solid red;
+            }
+
+            .text-danger {
+                position: absolute;
+                bottom: -5%;
+                margin: 0 20px;
+                font-size: .8rem;
+                color: red;
+            }
+        }
+    }
+
+    .login__form {
+        display: none;
+        margin: 10px auto;
+        color: #fc697d;
+
+        &-link {
+            cursor: pointer;
+            font-weight: 600;
+        }
+    }
+}

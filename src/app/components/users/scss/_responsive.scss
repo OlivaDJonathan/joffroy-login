@@ -1,7 +1,7 @@
-@media screen and (max-width: 999px)  {
+@media screen and (max-width: 1199px)  {
 
     .user {
-        height: 200px;
+        height: 250px;
     }
 }
 
@@ -14,10 +14,16 @@
     }
 }
 
-@media screen and (max-width: 520px)  {
+@media screen and (max-width: 699px) {
+    .user {
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 620px)  {
 
     .user {
-        height: 250px;
+        height: 300px;
 
         &__title {
             font-size: 1.3rem;
@@ -25,6 +31,22 @@
 
         &__info {
             font-size: .8rem;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .container {
+        .users {
+            width: 50% !important;
+        }
+    }
+}
+
+@media screen and (max-width: 399px) {
+    .container {
+        .users {
+            width: 55% !important;
         }
     }
 }

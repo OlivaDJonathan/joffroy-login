@@ -1,0 +1,28 @@
+.buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    * {
+        cursor: pointer;
+        height: 50px;
+        width: 150px;
+        border: none;
+        border-radius: 25px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: white;
+        margin: 20px 0;
+    }
+    .delete-btn {
+        padding: 0 15PX;
+        background: #fc697d;
+    }
+
+    .btn {
+        padding: 0 15PX;
+        background: radial-gradient(circle, rgba(105,198,252,1) 0%, rgba(105,252,158,1) 100%);
+    }
+}

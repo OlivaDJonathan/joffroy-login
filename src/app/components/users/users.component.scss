@@ -1,4 +1,4 @@
-@import 'scss/user', 'scss/responsive', 'scss/responsive';
+@import 'scss/user', 'scss/responsive', 'scss/scroll';
 
 .container {
     z-index: 0;
@@ -13,7 +13,7 @@
         flex-direction: column;
         width: 30%;
         align-items: center;
-        overflow: scroll;
+        overflow-y: scroll;
         background: #f8f8f8;
 
         &__none{
@@ -34,4 +34,10 @@
     align-self: flex-end;
     border-radius: 15px;
     cursor: pointer;
+    text-align: center;
+}
+
+.form {
+    width: 100%;
+    height: 100%;
 }

@@ -1,1 +1,45 @@
-<p>user-form works!</p>
+<div class="container">
+    @if (( user$ | async ) || (newUser) ; as user) {
+        <form class="form" [formGroup]="userForm" (ngSubmit)="save()">
+            <div class="form-row">
+                <div class="form-row__group">
+                    <label for="firstName">First Name</label>
+                    <div *ngIf="userForm?.get('firstName')?.invalid && userForm?.get('firstName')?.touched" class="text-danger">
+                        First Name is required.
+                    </div>
+                    <input type="text" [class.input-danger]="userForm?.get('firstName')?.invalid && userForm?.get('firstName')?.touched" class="form-control" id="firstName" formControlName="firstName" placeholder="First Name" required>
+                </div>
+                <div class="form-row__group">
+                    <label for="lastName">Last Name</label>
+                    <div *ngIf="userForm?.get('lastName')?.invalid && userForm?.get('lastName')?.touched" class="text-danger">
+                        Last Name is required.
+                    </div>
+                    <input type="text" [class.input-danger]="userForm?.get('lastName')?.invalid && userForm?.get('lastName')?.touched" class="form-control" id="lastName" formControlName="lastName" placeholder="Last Name" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-row__group">
+                    <label for="phone">Phone</label>
+                    <input type="text" [class.input-danger]="userForm?.get('phone')?.invalid && userForm?.get('phone')?.touched" class="form-control" id="phone" formControlName="phone" placeholder="Phone" required>
+                    <div *ngIf="userForm?.get('phone')?.invalid && userForm?.get('phone')?.touched" class="text-danger">
+                        Phone number is required.
+                    </div>
+                </div>
+                <div class="form-row__group">
+                    <label for="email">Email</label>
+                    <input type="text" [class.input-danger]="userForm?.get('email')?.invalid && userForm?.get('email')?.touched" class="form-control" id="email" formControlName="email" placeholder="Email" required>
+                    <div *ngIf="userForm?.get('email')?.invalid && userForm?.get('email')?.touched" class="text-danger">
+                        Email is required.
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="delete-btn" *ngIf="!newUser" (click)="delete()">Delete User</button>
+                <button type="submit" class="btn">{{action}} User</button>
+            </div>
+        </form>
+        
+    } @else {
+        <div>Nothing to see here</div>
+    }
+</div>
