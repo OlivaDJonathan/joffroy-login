@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthServiceService {
+export class AuthService {
   private baseUrl = 'https://localhost:44323'
 
   constructor(private _http: HttpClient) { }
 
-  login(username: string, password: string): Observable<any> {
-    return this._http.post<any>(`${this.baseUrl}/login`, { username, password })
+  login(email: string, password: string): Observable<any> {
+    return this._http.post<any>(`${this.baseUrl}/login`, { email, password })
     .pipe(map(response => {
       if (response && response.accessToken) {
         localStorage.setItem('token', response.accessToken);
@@ -22,8 +22,8 @@ export class AuthServiceService {
     }))
   }
   
-  register(username: string, password: string): Observable<any> {
-    return this._http.post<any>(`${this.baseUrl}/register`, { username, password });
+  register(email: string, password: string): Observable<any> {
+    return this._http.post<any>(`${this.baseUrl}/register`, { email, password });
   }
 
   refreshToken(): Observable<any> {

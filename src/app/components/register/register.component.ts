@@ -2,6 +2,9 @@ import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth-service.service';
+import { UsersService } from '../../services/users-service.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +21,11 @@ export class RegisterComponent implements OnInit {
 
   active : boolean = true;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder, 
+    private _authService: AuthService,
+    private _userService: UsersService
+  ) {}
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -32,7 +39,17 @@ export class RegisterComponent implements OnInit {
   register() {
     //TODO Login submition
     if (this.userForm?.valid) {
-      console.log('Form data:', this.userForm.value);
+      this._authService.register(this.userForm.value.email, this.userForm.value.password).subscribe();
+      
+      var newUser: User = {
+        firstName: this.userForm.value.firstName,
+        lastName: this.userForm.value.lastName,
+        email: this.userForm.value.email,
+        phone: this.userForm.value.phone,
+        role: 'user'
+      }
+
+      this._userService.createUser(newUser).subscribe();
     }
   }
 }
