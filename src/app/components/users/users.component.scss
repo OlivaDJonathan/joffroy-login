@@ -1,0 +1,37 @@
+@import 'scss/user', 'scss/responsive', 'scss/responsive';
+
+.container {
+    z-index: 0;
+    width: 100vw;
+    height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+
+    .users {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        align-items: center;
+        overflow: scroll;
+        background: #f8f8f8;
+
+        &__none{
+        text-align: center;
+            margin-block: auto;
+        }
+    }
+}
+
+.add-user {
+    background: none;
+    padding: 15px;
+    border: 2px solid #FC697D;
+    color: #FC697D;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 15px 5px;
+    align-self: flex-end;
+    border-radius: 15px;
+    cursor: pointer;
+}

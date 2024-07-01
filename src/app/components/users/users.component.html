@@ -1,0 +1,25 @@
+
+<div class="container">
+    <div class="users">
+        @if (users$ |async; as users ) {
+            @if (users.length > 0 ){
+                <div class="add-user">Add User</div>
+                @for (user of users; track $index) {
+                    <div class="user">
+                        <div class="user__title">{{user.firstName}} {{user.lastName}}</div>
+                        <div class="user__info">
+                            <div class="user__info-email"><i class="fa-regular fa-envelope"></i>{{user.email}}</div>
+                            <div class="user__info-phone"><i class="fa-solid fa-mobile-screen"></i>{{user.phone}}</div>
+                        </div>
+                    </div>
+                }
+            }
+        
+        } @else {
+            <div class="users__none">
+                No users to show
+            </div>
+        }
+    </div>
+    <div class="form"></div>
+</div>

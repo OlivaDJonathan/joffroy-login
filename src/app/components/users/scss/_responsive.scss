@@ -1,0 +1,30 @@
+@media screen and (max-width: 999px)  {
+
+    .user {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 799px)  {
+
+    .container {
+        .users {
+            width: 40% !important;
+        }
+    }
+}
+
+@media screen and (max-width: 520px)  {
+
+    .user {
+        height: 250px;
+
+        &__title {
+            font-size: 1.3rem;
+        }
+
+        &__info {
+            font-size: .8rem;
+        }
+    }
+}
