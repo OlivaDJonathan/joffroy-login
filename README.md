@@ -14,11 +14,15 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Known Issues
 
-When reloading the page after logging in, header buttons don't load correctly
+Most of this issues can be fixed with more time
 
-There is only 1 interface/model for the whole project, should add more
+-Using some var characters instead of type specific ones
 
-Users page needs to be reloaded for it to show changes in the DB, which conflicts with the previous reloading page header issue. To logout, wait for the tokens to timeout, or change `<div class="user__logout" (click)="logout()" *ngIf="userLogged">Logout</div>` in the header.component.html to `<div class="user__logout" (click)="logout()" *ngIf="!userLogged">Logout</div>`.
+-When reloading the page after logging in, header buttons don't load correctly
+
+-There is only 1 interface/model for the whole project, should add more
+
+-Users page needs to be reloaded for it to show changes in the DB, which conflicts with the previous reloading page header issue. To logout, wait for the tokens to timeout, or change `<div class="user__logout" (click)="logout()" *ngIf="userLogged">Logout</div>` in the header.component.html to `<div class="user__logout" (click)="logout()" *ngIf="!userLogged">Logout</div>`.
 
 Basically, invert the boolean that makes it show. Other than that, header works correctly if page isn't reloaded
 
