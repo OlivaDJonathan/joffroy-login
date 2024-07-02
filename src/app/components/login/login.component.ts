@@ -1,7 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth-service.service';
 
 @Component({
@@ -16,7 +16,11 @@ export class LoginComponent implements OnInit {
   StrongPasswordRegx: RegExp =/^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,}$/;
   userForm: any;
 
-  constructor(private formBuilder: FormBuilder, private _authService: AuthService) {}
+  constructor(
+    private formBuilder: FormBuilder, 
+    private _authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
@@ -27,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.userForm?.valid) {
-      this._authService.login(this.userForm.value.email, this.userForm.value.password).subscribe();
+      this._authService.login(this.userForm.value.email, this.userForm.value.password).subscribe(() => this.router.navigate(['/users']));
     }
   }
 }

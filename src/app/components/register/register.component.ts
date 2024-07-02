@@ -1,7 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth-service.service';
 import { UsersService } from '../../services/users-service.service';
 import { User } from '../../models/user';
@@ -24,7 +24,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder, 
     private _authService: AuthService,
-    private _userService: UsersService
+    private _userService: UsersService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
@@ -49,7 +50,7 @@ export class RegisterComponent implements OnInit {
         role: 'user'
       }
 
-      this._userService.createUser(newUser).subscribe();
+      this._userService.createUser(newUser).subscribe(() => this.router.navigate(['/login']));
     }
   }
 }
